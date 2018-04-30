@@ -4,7 +4,7 @@
   "license": "ISC",
   "author": "Buster Collings <busterc@gmail.com>",
   "repository": "busterc/liver",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "precommit": "eslint . && lint-staged",
     "start": "cd ./src && live-server --watch=index.html,global.js,site.css"
@@ -24,7 +24,10 @@
     "prettier-package-json": "^1.5.1"
   },
   "eslintConfig": {
-    "extends": ["xo", "prettier"],
+    "extends": [
+      "xo",
+      "prettier"
+    ],
     "env": {
       "node": true
     },
@@ -37,11 +40,23 @@
         }
       ]
     },
-    "plugins": ["prettier", "json"]
+    "plugins": [
+      "prettier",
+      "json"
+    ]
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"],
-    "*.json": ["prettier --write", "git add"],
-    "package.json": ["prettier-package-json --write", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ],
+    "package.json": [
+      "prettier-package-json --write",
+      "git add"
+    ]
   }
 }
