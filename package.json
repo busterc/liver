@@ -1,0 +1,47 @@
+{
+  "name": "liver",
+  "description": "the dumbest live-reload static server",
+  "license": "ISC",
+  "author": "Buster Collings <busterc@gmail.com>",
+  "repository": "busterc/liver",
+  "version": "0.0.0",
+  "scripts": {
+    "precommit": "eslint . && lint-staged",
+    "start": "cd ./src && live-server --watch=index.html,global.js,site.css"
+  },
+  "dependencies": {
+    "live-server": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-xo": "^0.20.1",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.1",
+    "prettier": "^1.11.1",
+    "prettier-package-json": "^1.5.1"
+  },
+  "eslintConfig": {
+    "extends": ["xo", "prettier"],
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": ["prettier", "json"]
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "git add"],
+    "*.json": ["prettier --write", "git add"],
+    "package.json": ["prettier-package-json --write", "git add"]
+  }
+}
